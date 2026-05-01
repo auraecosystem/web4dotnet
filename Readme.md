@@ -2,6 +2,7 @@
 tittle: docs.
 name: gh.io
 contents: reStructuredText
+page: _site
 --- 
  
 ====================
