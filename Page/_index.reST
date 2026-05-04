@@ -1,14 +1,7 @@
----
-tittle: docs
-name: web4application.gh.io
-contents: reStructuredText
---- 
+|reStructuredText|
 
- # 
-====================
- |reStructuredText|
-====================
- 
+
+
 	
 ------------------------------------------------- 
  Markup Syntax and Parser Component of Docutils_
