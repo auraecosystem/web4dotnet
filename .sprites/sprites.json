@@ -1,0 +1,20 @@
+{
+  "version": "1",
+  "current_selection": {
+    "url": "https://api.sprites.dev",
+    "org": "personal"
+  },
+  "urls": {
+    "https://api.sprites.dev": {
+      "url": "https://api.sprites.dev",
+      "orgs": {
+        "personal": {
+          "name": "personal",
+          "keyring_key": "sprites-cli:<user-id>",
+          "use_keyring": true,
+          "sprites": {}
+        }
+      }
+    }
+  }
+}
