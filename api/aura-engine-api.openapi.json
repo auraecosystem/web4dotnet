@@ -1,0 +1,2821 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "AURA Engine API",
+        "version": "1.0.0-alpha5",
+        "license": {
+            "name": "GNU Affero General Public License",
+            "url": "https://www.gnu.org/licenses/agpl-3.0.html"
+        }
+    },
+    "paths": {
+        "/api/schema": {
+            "get": {
+                "operationId": "schema_retrieve",
+                "description": "OpenApi3 schema for this API. Format can be selected via content negotiation.\n\n- YAML: application/vnd.oai.openapi\n- JSON: application/vnd.oai.openapi+json",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "format",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "json",
+                                "yaml"
+                            ]
+                        }
+                    },
+                    {
+                        "in": "query",
+                        "name": "lang",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "af",
+                                "ar",
+                                "ar-dz",
+                                "ast",
+                                "az",
+                                "be",
+                                "bg",
+                                "bn",
+                                "br",
+                                "bs",
+                                "ca",
+                                "ckb",
+                                "cs",
+                                "cy",
+                                "da",
+                                "de",
+                                "dsb",
+                                "el",
+                                "en",
+                                "en-au",
+                                "en-gb",
+                                "eo",
+                                "es",
+                                "es-ar",
+                                "es-co",
+                                "es-mx",
+                                "es-ni",
+                                "es-ve",
+                                "et",
+                                "eu",
+                                "fa",
+                                "fi",
+                                "fr",
+                                "fy",
+                                "ga",
+                                "gd",
+                                "gl",
+                                "he",
+                                "hi",
+                                "hr",
+                                "hsb",
+                                "hu",
+                                "hy",
+                                "ia",
+                                "id",
+                                "ig",
+                                "io",
+                                "is",
+                                "it",
+                                "ja",
+                                "ka",
+                                "kab",
+                                "kk",
+                                "km",
+                                "kn",
+                                "ko",
+                                "ky",
+                                "lb",
+                                "lt",
+                                "lv",
+                                "mk",
+                                "ml",
+                                "mn",
+                                "mr",
+                                "ms",
+                                "my",
+                                "nb",
+                                "ne",
+                                "nl",
+                                "nn",
+                                "os",
+                                "pa",
+                                "pl",
+                                "pt",
+                                "pt-br",
+                                "ro",
+                                "ru",
+                                "sk",
+                                "sl",
+                                "sq",
+                                "sr",
+                                "sr-latn",
+                                "sv",
+                                "sw",
+                                "ta",
+                                "te",
+                                "tg",
+                                "th",
+                                "tk",
+                                "tr",
+                                "tt",
+                                "udm",
+                                "ug",
+                                "uk",
+                                "ur",
+                                "uz",
+                                "vi",
+                                "zh-hans",
+                                "zh-hant"
+                            ]
+                        }
+                    }
+                ],
+                "tags": [
+                    "schema"
+                ],
+                "security": [
+                    {
+                        "tokenAuth": []
+                    },
+                    {
+                        "cookieAuth": []
+                    },
+                    {
+                        "basicAuth": []
+                    },
+                    {}
+                ],
+                "responses": {
+                    "400": {
+                        "content": {
+                            "application/vnd.oai.openapi": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SchemaRetrieveErrorResponse400"
+                                }
+                            },
+                            "application/yaml": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SchemaRetrieveErrorResponse400"
+                                }
+                            },
+                            "application/vnd.oai.openapi+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SchemaRetrieveErrorResponse400"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SchemaRetrieveErrorResponse400"
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "401": {
+                        "content": {
+                            "application/vnd.oai.openapi": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse401"
+                                },
+                                "examples": {
+                                    "AuthenticationFailed": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "authentication_failed",
+                                                    "detail": "Falsche Anmeldedaten.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "NotAuthenticated": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "not_authenticated",
+                                                    "detail": "Anmeldedaten fehlen.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            },
+                            "application/yaml": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse401"
+                                },
+                                "examples": {
+                                    "AuthenticationFailed": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "authentication_failed",
+                                                    "detail": "Falsche Anmeldedaten.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "NotAuthenticated": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "not_authenticated",
+                                                    "detail": "Anmeldedaten fehlen.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            },
+                            "application/vnd.oai.openapi+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse401"
+                                },
+                                "examples": {
+                                    "AuthenticationFailed": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "authentication_failed",
+                                                    "detail": "Falsche Anmeldedaten.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "NotAuthenticated": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "not_authenticated",
+                                                    "detail": "Anmeldedaten fehlen.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse401"
+                                },
+                                "examples": {
+                                    "AuthenticationFailed": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "authentication_failed",
+                                                    "detail": "Falsche Anmeldedaten.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "NotAuthenticated": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "not_authenticated",
+                                                    "detail": "Anmeldedaten fehlen.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "405": {
+                        "content": {
+                            "application/vnd.oai.openapi": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse405"
+                                },
+                                "examples": {
+                                    "MethodNotAllowed": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "method_not_allowed",
+                                                    "detail": "Methode \"get\" nicht erlaubt.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            },
+                            "application/yaml": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse405"
+                                },
+                                "examples": {
+                                    "MethodNotAllowed": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "method_not_allowed",
+                                                    "detail": "Methode \"get\" nicht erlaubt.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            },
+                            "application/vnd.oai.openapi+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse405"
+                                },
+                                "examples": {
+                                    "MethodNotAllowed": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "method_not_allowed",
+                                                    "detail": "Methode \"get\" nicht erlaubt.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse405"
+                                },
+                                "examples": {
+                                    "MethodNotAllowed": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "method_not_allowed",
+                                                    "detail": "Methode \"get\" nicht erlaubt.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "406": {
+                        "content": {
+                            "application/vnd.oai.openapi": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse406"
+                                },
+                                "examples": {
+                                    "NotAcceptable": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "not_acceptable",
+                                                    "detail": "Kann die Accept Kopfzeile der Anfrage nicht erfüllen.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            },
+                            "application/yaml": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse406"
+                                },
+                                "examples": {
+                                    "NotAcceptable": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "not_acceptable",
+                                                    "detail": "Kann die Accept Kopfzeile der Anfrage nicht erfüllen.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            },
+                            "application/vnd.oai.openapi+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse406"
+                                },
+                                "examples": {
+                                    "NotAcceptable": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "not_acceptable",
+                                                    "detail": "Kann die Accept Kopfzeile der Anfrage nicht erfüllen.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse406"
+                                },
+                                "examples": {
+                                    "NotAcceptable": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "not_acceptable",
+                                                    "detail": "Kann die Accept Kopfzeile der Anfrage nicht erfüllen.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "415": {
+                        "content": {
+                            "application/vnd.oai.openapi": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse415"
+                                },
+                                "examples": {
+                                    "UnsupportedMediaType": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "unsupported_media_type",
+                                                    "detail": "Nicht unterstützter Medientyp \"application/json\" in der Anfrage.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            },
+                            "application/yaml": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse415"
+                                },
+                                "examples": {
+                                    "UnsupportedMediaType": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "unsupported_media_type",
+                                                    "detail": "Nicht unterstützter Medientyp \"application/json\" in der Anfrage.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            },
+                            "application/vnd.oai.openapi+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse415"
+                                },
+                                "examples": {
+                                    "UnsupportedMediaType": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "unsupported_media_type",
+                                                    "detail": "Nicht unterstützter Medientyp \"application/json\" in der Anfrage.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse415"
+                                },
+                                "examples": {
+                                    "UnsupportedMediaType": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "unsupported_media_type",
+                                                    "detail": "Nicht unterstützter Medientyp \"application/json\" in der Anfrage.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "500": {
+                        "content": {
+                            "application/vnd.oai.openapi": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse500"
+                                },
+                                "examples": {
+                                    "APIException": {
+                                        "value": {
+                                            "type": "server_error",
+                                            "errors": [
+                                                {
+                                                    "code": "error",
+                                                    "detail": "Ein Serverfehler ist aufgetreten.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            },
+                            "application/yaml": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse500"
+                                },
+                                "examples": {
+                                    "APIException": {
+                                        "value": {
+                                            "type": "server_error",
+                                            "errors": [
+                                                {
+                                                    "code": "error",
+                                                    "detail": "Ein Serverfehler ist aufgetreten.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            },
+                            "application/vnd.oai.openapi+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse500"
+                                },
+                                "examples": {
+                                    "APIException": {
+                                        "value": {
+                                            "type": "server_error",
+                                            "errors": [
+                                                {
+                                                    "code": "error",
+                                                    "detail": "Ein Serverfehler ist aufgetreten.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse500"
+                                },
+                                "examples": {
+                                    "APIException": {
+                                        "value": {
+                                            "type": "server_error",
+                                            "errors": [
+                                                {
+                                                    "code": "error",
+                                                    "detail": "Ein Serverfehler ist aufgetreten.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "200": {
+                        "content": {
+                            "application/vnd.oai.openapi": {
+                                "schema": {
+                                    "type": "object",
+                                    "additionalProperties": {}
+                                }
+                            },
+                            "application/yaml": {
+                                "schema": {
+                                    "type": "object",
+                                    "additionalProperties": {}
+                                }
+                            },
+                            "application/vnd.oai.openapi+json": {
+                                "schema": {
+                                    "type": "object",
+                                    "additionalProperties": {}
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "additionalProperties": {}
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/v1/playlog": {
+            "get": {
+                "operationId": "v1_playlog_list",
+                "summary": "List entries in the playlog.",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "fromDate",
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "description": "Only return playlog entries starting with this datetime."
+                    },
+                    {
+                        "name": "limit",
+                        "required": false,
+                        "in": "query",
+                        "description": "Number of results to return per page.",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "required": false,
+                        "in": "query",
+                        "description": "A page number within the paginated result set.",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "in": "query",
+                        "name": "skipSynced",
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "description": "Only return playlogs entries which are in unsynced state on the main node"
+                    },
+                    {
+                        "in": "query",
+                        "name": "toDate",
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "description": "Only return playlogs entries starting up until this datetime."
+                    }
+                ],
+                "tags": [
+                    "internal"
+                ],
+                "security": [
+                    {
+                        "tokenAuth": []
+                    },
+                    {
+                        "cookieAuth": []
+                    },
+                    {
+                        "basicAuth": []
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/V1PlaylogListErrorResponse400"
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse401"
+                                },
+                                "examples": {
+                                    "AuthenticationFailed": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "authentication_failed",
+                                                    "detail": "Falsche Anmeldedaten.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "NotAuthenticated": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "not_authenticated",
+                                                    "detail": "Anmeldedaten fehlen.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse404"
+                                },
+                                "examples": {
+                                    "NotFound": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "not_found",
+                                                    "detail": "Nicht gefunden.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "405": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse405"
+                                },
+                                "examples": {
+                                    "MethodNotAllowed": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "method_not_allowed",
+                                                    "detail": "Methode \"get\" nicht erlaubt.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "406": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse406"
+                                },
+                                "examples": {
+                                    "NotAcceptable": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "not_acceptable",
+                                                    "detail": "Kann die Accept Kopfzeile der Anfrage nicht erfüllen.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "415": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse415"
+                                },
+                                "examples": {
+                                    "UnsupportedMediaType": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "unsupported_media_type",
+                                                    "detail": "Nicht unterstützter Medientyp \"application/json\" in der Anfrage.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse500"
+                                },
+                                "examples": {
+                                    "APIException": {
+                                        "value": {
+                                            "type": "server_error",
+                                            "errors": [
+                                                {
+                                                    "code": "error",
+                                                    "detail": "Ein Serverfehler ist aufgetreten.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PaginatedPlayLogList"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "operationId": "v1_playlog_create",
+                "summary": "Store a playlog entry.",
+                "tags": [
+                    "internal"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PlayLog"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PlayLog"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PlayLog"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "security": [
+                    {
+                        "tokenAuth": []
+                    },
+                    {
+                        "cookieAuth": []
+                    },
+                    {
+                        "basicAuth": []
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/V1PlaylogCreateErrorResponse400"
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse401"
+                                },
+                                "examples": {
+                                    "AuthenticationFailed": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "authentication_failed",
+                                                    "detail": "Falsche Anmeldedaten.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "NotAuthenticated": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "not_authenticated",
+                                                    "detail": "Anmeldedaten fehlen.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse404"
+                                },
+                                "examples": {
+                                    "NotFound": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "not_found",
+                                                    "detail": "Nicht gefunden.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "405": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse405"
+                                },
+                                "examples": {
+                                    "MethodNotAllowed": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "method_not_allowed",
+                                                    "detail": "Methode \"get\" nicht erlaubt.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "406": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse406"
+                                },
+                                "examples": {
+                                    "NotAcceptable": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "not_acceptable",
+                                                    "detail": "Kann die Accept Kopfzeile der Anfrage nicht erfüllen.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "415": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse415"
+                                },
+                                "examples": {
+                                    "UnsupportedMediaType": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "unsupported_media_type",
+                                                    "detail": "Nicht unterstützter Medientyp \"application/json\" in der Anfrage.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse500"
+                                },
+                                "examples": {
+                                    "APIException": {
+                                        "value": {
+                                            "type": "server_error",
+                                            "errors": [
+                                                {
+                                                    "code": "error",
+                                                    "detail": "Ein Serverfehler ist aufgetreten.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "201": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PlayLog"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/v1/trackservice": {
+            "get": {
+                "operationId": "v1_trackservice_list",
+                "summary": "List recent music entries in the playlog.",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "fromDate",
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "description": "Only return playlog entries starting with this datetime."
+                    },
+                    {
+                        "name": "limit",
+                        "required": false,
+                        "in": "query",
+                        "description": "Number of results to return per page.",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "required": false,
+                        "in": "query",
+                        "description": "A page number within the paginated result set.",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "in": "query",
+                        "name": "skipSynced",
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "description": "Only return playlogs entries which are in unsynced state on the main node"
+                    },
+                    {
+                        "in": "query",
+                        "name": "toDate",
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "description": "Only return playlogs entries starting up until this datetime."
+                    }
+                ],
+                "tags": [
+                    "public"
+                ],
+                "security": [
+                    {}
+                ],
+                "responses": {
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/V1TrackserviceListErrorResponse400"
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse404"
+                                },
+                                "examples": {
+                                    "NotFound": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "not_found",
+                                                    "detail": "Nicht gefunden.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "405": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse405"
+                                },
+                                "examples": {
+                                    "MethodNotAllowed": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "method_not_allowed",
+                                                    "detail": "Methode \"get\" nicht erlaubt.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "406": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse406"
+                                },
+                                "examples": {
+                                    "NotAcceptable": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "not_acceptable",
+                                                    "detail": "Kann die Accept Kopfzeile der Anfrage nicht erfüllen.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "415": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse415"
+                                },
+                                "examples": {
+                                    "UnsupportedMediaType": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "unsupported_media_type",
+                                                    "detail": "Nicht unterstützter Medientyp \"application/json\" in der Anfrage.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse500"
+                                },
+                                "examples": {
+                                    "APIException": {
+                                        "value": {
+                                            "type": "server_error",
+                                            "errors": [
+                                                {
+                                                    "code": "error",
+                                                    "detail": "Ein Serverfehler ist aufgetreten.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PaginatedPlayLogList"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/v1/trackservice/current": {
+            "get": {
+                "operationId": "v1_trackservice_current_retrieve",
+                "summary": "Retrieve the currently playing music entry from the playlog.",
+                "tags": [
+                    "public"
+                ],
+                "security": [
+                    {}
+                ],
+                "responses": {
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/V1TrackserviceCurrentRetrieveErrorResponse400"
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse404"
+                                },
+                                "examples": {
+                                    "NotFound": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "not_found",
+                                                    "detail": "Nicht gefunden.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "405": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse405"
+                                },
+                                "examples": {
+                                    "MethodNotAllowed": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "method_not_allowed",
+                                                    "detail": "Methode \"get\" nicht erlaubt.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "406": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse406"
+                                },
+                                "examples": {
+                                    "NotAcceptable": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "not_acceptable",
+                                                    "detail": "Kann die Accept Kopfzeile der Anfrage nicht erfüllen.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "415": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse415"
+                                },
+                                "examples": {
+                                    "UnsupportedMediaType": {
+                                        "value": {
+                                            "type": "client_error",
+                                            "errors": [
+                                                {
+                                                    "code": "unsupported_media_type",
+                                                    "detail": "Nicht unterstützter Medientyp \"application/json\" in der Anfrage.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse500"
+                                },
+                                "examples": {
+                                    "APIException": {
+                                        "value": {
+                                            "type": "server_error",
+                                            "errors": [
+                                                {
+                                                    "code": "error",
+                                                    "detail": "Ein Serverfehler ist aufgetreten.",
+                                                    "attr": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PlayLog"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "ClientErrorEnum": {
+                "enum": [
+                    "client_error"
+                ],
+                "type": "string",
+                "description": "* `client_error` - Client Error"
+            },
+            "Error401": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "$ref": "#/components/schemas/ErrorCode401Enum"
+                    },
+                    "detail": {
+                        "type": "string"
+                    },
+                    "attr": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "attr",
+                    "code",
+                    "detail"
+                ]
+            },
+            "Error404": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "$ref": "#/components/schemas/ErrorCode404Enum"
+                    },
+                    "detail": {
+                        "type": "string"
+                    },
+                    "attr": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "attr",
+                    "code",
+                    "detail"
+                ]
+            },
+            "Error405": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "$ref": "#/components/schemas/ErrorCode405Enum"
+                    },
+                    "detail": {
+                        "type": "string"
+                    },
+                    "attr": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "attr",
+                    "code",
+                    "detail"
+                ]
+            },
+            "Error406": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "$ref": "#/components/schemas/ErrorCode406Enum"
+                    },
+                    "detail": {
+                        "type": "string"
+                    },
+                    "attr": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "attr",
+                    "code",
+                    "detail"
+                ]
+            },
+            "Error415": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "$ref": "#/components/schemas/ErrorCode415Enum"
+                    },
+                    "detail": {
+                        "type": "string"
+                    },
+                    "attr": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "attr",
+                    "code",
+                    "detail"
+                ]
+            },
+            "Error500": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "$ref": "#/components/schemas/ErrorCode500Enum"
+                    },
+                    "detail": {
+                        "type": "string"
+                    },
+                    "attr": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "attr",
+                    "code",
+                    "detail"
+                ]
+            },
+            "ErrorCode401Enum": {
+                "enum": [
+                    "authentication_failed",
+                    "not_authenticated"
+                ],
+                "type": "string",
+                "description": "* `authentication_failed` - Authentication Failed\n* `not_authenticated` - Not Authenticated"
+            },
+            "ErrorCode404Enum": {
+                "enum": [
+                    "not_found"
+                ],
+                "type": "string",
+                "description": "* `not_found` - Not Found"
+            },
+            "ErrorCode405Enum": {
+                "enum": [
+                    "method_not_allowed"
+                ],
+                "type": "string",
+                "description": "* `method_not_allowed` - Method Not Allowed"
+            },
+            "ErrorCode406Enum": {
+                "enum": [
+                    "not_acceptable"
+                ],
+                "type": "string",
+                "description": "* `not_acceptable` - Not Acceptable"
+            },
+            "ErrorCode415Enum": {
+                "enum": [
+                    "unsupported_media_type"
+                ],
+                "type": "string",
+                "description": "* `unsupported_media_type` - Unsupported Media Type"
+            },
+            "ErrorCode500Enum": {
+                "enum": [
+                    "error"
+                ],
+                "type": "string",
+                "description": "* `error` - Error"
+            },
+            "ErrorResponse401": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "$ref": "#/components/schemas/ClientErrorEnum"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Error401"
+                        }
+                    }
+                },
+                "required": [
+                    "errors",
+                    "type"
+                ]
+            },
+            "ErrorResponse404": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "$ref": "#/components/schemas/ClientErrorEnum"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Error404"
+                        }
+                    }
+                },
+                "required": [
+                    "errors",
+                    "type"
+                ]
+            },
+            "ErrorResponse405": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "$ref": "#/components/schemas/ClientErrorEnum"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Error405"
+                        }
+                    }
+                },
+                "required": [
+                    "errors",
+                    "type"
+                ]
+            },
+            "ErrorResponse406": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "$ref": "#/components/schemas/ClientErrorEnum"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Error406"
+                        }
+                    }
+                },
+                "required": [
+                    "errors",
+                    "type"
+                ]
+            },
+            "ErrorResponse415": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "$ref": "#/components/schemas/ClientErrorEnum"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Error415"
+                        }
+                    }
+                },
+                "required": [
+                    "errors",
+                    "type"
+                ]
+            },
+            "ErrorResponse500": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "$ref": "#/components/schemas/ServerErrorEnum"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Error500"
+                        }
+                    }
+                },
+                "required": [
+                    "errors",
+                    "type"
+                ]
+            },
+            "PaginatedPlayLogList": {
+                "type": "object",
+                "required": [
+                    "count",
+                    "results"
+                ],
+                "properties": {
+                    "count": {
+                        "type": "integer",
+                        "example": 123
+                    },
+                    "next": {
+                        "type": "string",
+                        "nullable": true,
+                        "format": "uri",
+                        "example": "http://api.example.org/accounts/?page=4"
+                    },
+                    "previous": {
+                        "type": "string",
+                        "nullable": true,
+                        "format": "uri",
+                        "example": "http://api.example.org/accounts/?page=2"
+                    },
+                    "results": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PlayLog"
+                        }
+                    }
+                }
+            },
+            "ParseError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "$ref": "#/components/schemas/ParseErrorCodeEnum"
+                    },
+                    "detail": {
+                        "type": "string"
+                    },
+                    "attr": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "attr",
+                    "code",
+                    "detail"
+                ]
+            },
+            "ParseErrorCodeEnum": {
+                "enum": [
+                    "parse_error"
+                ],
+                "type": "string",
+                "description": "* `parse_error` - Parse Error"
+            },
+            "ParseErrorResponse": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "$ref": "#/components/schemas/ClientErrorEnum"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ParseError"
+                        }
+                    }
+                },
+                "required": [
+                    "errors",
+                    "type"
+                ]
+            },
+            "PlayLog": {
+                "type": "object",
+                "properties": {
+                    "startedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "durationSeconds": {
+                        "type": "number",
+                        "format": "double",
+                        "default": 0.0
+                    },
+                    "mediaSource": {
+                        "type": "object",
+                        "additionalProperties": {},
+                        "nullable": true,
+                        "description": "A copy of the media source from steering at the time of creation. Be aware that this copy may not reflect the current steering media source type, as this field is not updated to reflect any changes."
+                    },
+                    "metadata": {
+                        "$ref": "#/components/schemas/PlaylogMetadata"
+                    },
+                    "isMusicTrack": {
+                        "type": "boolean",
+                        "title": "Is music",
+                        "description": "Playlog entries that are classified as music will be exposed in the track service endpoint."
+                    },
+                    "mediaId": {
+                        "type": "integer",
+                        "maximum": 9223372036854775807,
+                        "minimum": -9223372036854775808,
+                        "format": "int64",
+                        "nullable": true,
+                        "title": "Media",
+                        "description": "Reference to the media object in steering."
+                    },
+                    "timeslotId": {
+                        "type": "integer",
+                        "maximum": 9223372036854775807,
+                        "minimum": -9223372036854775808,
+                        "format": "int64",
+                        "nullable": true,
+                        "title": "Timeslot",
+                        "description": "Reference to the timeslot object in steering."
+                    },
+                    "showId": {
+                        "type": "integer",
+                        "maximum": 9223372036854775807,
+                        "minimum": -9223372036854775808,
+                        "format": "int64",
+                        "nullable": true,
+                        "title": "Show",
+                        "description": "Reference to the show object in steering."
+                    },
+                    "showName": {
+                        "type": "string",
+                        "maxLength": 256
+                    },
+                    "mediaSourceId": {
+                        "type": "integer",
+                        "maximum": 9223372036854775807,
+                        "minimum": -9223372036854775808,
+                        "format": "int64",
+                        "nullable": true,
+                        "title": "Media source",
+                        "description": "Reference to the media source object in steering."
+                    },
+                    "logSource": {
+                        "type": "integer",
+                        "maximum": 9223372036854775807,
+                        "minimum": -9223372036854775808,
+                        "format": "int64"
+                    },
+                    "isSynced": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "startedAt"
+                ]
+            },
+            "PlaylogMetadata": {
+                "type": "object",
+                "description": "By default, the metadata field contains the artist, album and title fields.\nYou may add other arbitrary fields if you want.",
+                "properties": {
+                    "artist": {
+                        "type": "string",
+                        "default": ""
+                    },
+                    "album": {
+                        "type": "string",
+                        "default": ""
+                    },
+                    "title": {
+                        "type": "string",
+                        "default": ""
+                    }
+                },
+                "additionalProperties": true
+            },
+            "SchemaRetrieveErrorResponse400": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/ParseErrorResponse"
+                    }
+                ],
+                "discriminator": {
+                    "propertyName": "type",
+                    "mapping": {
+                        "client_error": "#/components/schemas/ParseErrorResponse"
+                    }
+                }
+            },
+            "ServerErrorEnum": {
+                "enum": [
+                    "server_error"
+                ],
+                "type": "string",
+                "description": "* `server_error` - Server Error"
+            },
+            "V1PlaylogCreateDurationSecondsErrorComponent": {
+                "type": "object",
+                "properties": {
+                    "attr": {
+                        "enum": [
+                            "duration_seconds"
+                        ],
+                        "type": "string",
+                        "description": "* `duration_seconds` - duration_seconds"
+                    },
+                    "code": {
+                        "enum": [
+                            "invalid",
+                            "null"
+                        ],
+                        "type": "string",
+                        "description": "* `invalid` - invalid\n* `null` - null"
+                    },
+                    "detail": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "attr",
+                    "code",
+                    "detail"
+                ]
+            },
+            "V1PlaylogCreateError": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/V1PlaylogCreateNonFieldErrorsErrorComponent"
+                    },
+                    {
+                        "$ref": "#/components/schemas/V1PlaylogCreateStartedAtErrorComponent"
+                    },
+                    {
+                        "$ref": "#/components/schemas/V1PlaylogCreateDurationSecondsErrorComponent"
+                    },
+                    {
+                        "$ref": "#/components/schemas/V1PlaylogCreateMediaSourceErrorComponent"
+                    },
+                    {
+                        "$ref": "#/components/schemas/V1PlaylogCreateMetadataNonFieldErrorsErrorComponent"
+                    },
+                    {
+                        "$ref": "#/components/schemas/V1PlaylogCreateMetadataArtistErrorComponent"
+                    },
+                    {
+                        "$ref": "#/components/schemas/V1PlaylogCreateMetadataAlbumErrorComponent"
+                    },
+                    {
+                        "$ref": "#/components/schemas/V1PlaylogCreateMetadataTitleErrorComponent"
+                    },
+                    {
+                        "$ref": "#/components/schemas/V1PlaylogCreateIsMusicTrackErrorComponent"
+                    },
+                    {
+                        "$ref": "#/components/schemas/V1PlaylogCreateMediaIdErrorComponent"
+                    },
+                    {
+                        "$ref": "#/components/schemas/V1PlaylogCreateTimeslotIdErrorComponent"
+                    },
+                    {
+                        "$ref": "#/components/schemas/V1PlaylogCreateShowIdErrorComponent"
+                    },
+                    {
+                        "$ref": "#/components/schemas/V1PlaylogCreateShowNameErrorComponent"
+                    },
+                    {
+                        "$ref": "#/components/schemas/V1PlaylogCreateMediaSourceIdErrorComponent"
+                    },
+                    {
+                        "$ref": "#/components/schemas/V1PlaylogCreateLogSourceErrorComponent"
+                    },
+                    {
+                        "$ref": "#/components/schemas/V1PlaylogCreateIsSyncedErrorComponent"
+                    }
+                ],
+                "discriminator": {
+                    "propertyName": "attr",
+                    "mapping": {
+                        "non_field_errors": "#/components/schemas/V1PlaylogCreateNonFieldErrorsErrorComponent",
+                        "started_at": "#/components/schemas/V1PlaylogCreateStartedAtErrorComponent",
+                        "duration_seconds": "#/components/schemas/V1PlaylogCreateDurationSecondsErrorComponent",
+                        "media_source": "#/components/schemas/V1PlaylogCreateMediaSourceErrorComponent",
+                        "metadata.non_field_errors": "#/components/schemas/V1PlaylogCreateMetadataNonFieldErrorsErrorComponent",
+                        "metadata.artist": "#/components/schemas/V1PlaylogCreateMetadataArtistErrorComponent",
+                        "metadata.album": "#/components/schemas/V1PlaylogCreateMetadataAlbumErrorComponent",
+                        "metadata.title": "#/components/schemas/V1PlaylogCreateMetadataTitleErrorComponent",
+                        "is_music_track": "#/components/schemas/V1PlaylogCreateIsMusicTrackErrorComponent",
+                        "media_id": "#/components/schemas/V1PlaylogCreateMediaIdErrorComponent",
+                        "timeslot_id": "#/components/schemas/V1PlaylogCreateTimeslotIdErrorComponent",
+                        "show_id": "#/components/schemas/V1PlaylogCreateShowIdErrorComponent",
+                        "show_name": "#/components/schemas/V1PlaylogCreateShowNameErrorComponent",
+                        "media_source_id": "#/components/schemas/V1PlaylogCreateMediaSourceIdErrorComponent",
+                        "log_source": "#/components/schemas/V1PlaylogCreateLogSourceErrorComponent",
+                        "is_synced": "#/components/schemas/V1PlaylogCreateIsSyncedErrorComponent"
+                    }
+                }
+            },
+            "V1PlaylogCreateErrorResponse400": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/V1PlaylogCreateValidationError"
+                    },
+                    {
+                        "$ref": "#/components/schemas/ParseErrorResponse"
+                    }
+                ],
+                "discriminator": {
+                    "propertyName": "type",
+                    "mapping": {
+                        "validation_error": "#/components/schemas/V1PlaylogCreateValidationError",
+                        "client_error": "#/components/schemas/ParseErrorResponse"
+                    }
+                }
+            },
+            "V1PlaylogCreateIsMusicTrackErrorComponent": {
+                "type": "object",
+                "properties": {
+                    "attr": {
+                        "enum": [
+                            "is_music_track"
+                        ],
+                        "type": "string",
+                        "description": "* `is_music_track` - is_music_track"
+                    },
+                    "code": {
+                        "enum": [
+                            "invalid",
+                            "null"
+                        ],
+                        "type": "string",
+                        "description": "* `invalid` - invalid\n* `null` - null"
+                    },
+                    "detail": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "attr",
+                    "code",
+                    "detail"
+                ]
+            },
+            "V1PlaylogCreateIsSyncedErrorComponent": {
+                "type": "object",
+                "properties": {
+                    "attr": {
+                        "enum": [
+                            "is_synced"
+                        ],
+                        "type": "string",
+                        "description": "* `is_synced` - is_synced"
+                    },
+                    "code": {
+                        "enum": [
+                            "invalid",
+                            "null"
+                        ],
+                        "type": "string",
+                        "description": "* `invalid` - invalid\n* `null` - null"
+                    },
+                    "detail": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "attr",
+                    "code",
+                    "detail"
+                ]
+            },
+            "V1PlaylogCreateLogSourceErrorComponent": {
+                "type": "object",
+                "properties": {
+                    "attr": {
+                        "enum": [
+                            "log_source"
+                        ],
+                        "type": "string",
+                        "description": "* `log_source` - log_source"
+                    },
+                    "code": {
+                        "enum": [
+                            "invalid",
+                            "max_string_length",
+                            "max_value",
+                            "min_value",
+                            "null"
+                        ],
+                        "type": "string",
+                        "description": "* `invalid` - invalid\n* `max_string_length` - max_string_length\n* `max_value` - max_value\n* `min_value` - min_value\n* `null` - null"
+                    },
+                    "detail": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "attr",
+                    "code",
+                    "detail"
+                ]
+            },
+            "V1PlaylogCreateMediaIdErrorComponent": {
+                "type": "object",
+                "properties": {
+                    "attr": {
+                        "enum": [
+                            "media_id"
+                        ],
+                        "type": "string",
+                        "description": "* `media_id` - media_id"
+                    },
+                    "code": {
+                        "enum": [
+                            "invalid",
+                            "max_string_length",
+                            "max_value",
+                            "min_value"
+                        ],
+                        "type": "string",
+                        "description": "* `invalid` - invalid\n* `max_string_length` - max_string_length\n* `max_value` - max_value\n* `min_value` - min_value"
+                    },
+                    "detail": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "attr",
+                    "code",
+                    "detail"
+                ]
+            },
+            "V1PlaylogCreateMediaSourceErrorComponent": {
+                "type": "object",
+                "properties": {
+                    "attr": {
+                        "enum": [
+                            "media_source"
+                        ],
+                        "type": "string",
+                        "description": "* `media_source` - media_source"
+                    },
+                    "code": {
+                        "enum": [
+                            "invalid"
+                        ],
+                        "type": "string",
+                        "description": "* `invalid` - invalid"
+                    },
+                    "detail": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "attr",
+                    "code",
+                    "detail"
+                ]
+            },
+            "V1PlaylogCreateMediaSourceIdErrorComponent": {
+                "type": "object",
+                "properties": {
+                    "attr": {
+                        "enum": [
+                            "media_source_id"
+                        ],
+                        "type": "string",
+                        "description": "* `media_source_id` - media_source_id"
+                    },
+                    "code": {
+                        "enum": [
+                            "invalid",
+                            "max_string_length",
+                            "max_value",
+                            "min_value"
+                        ],
+                        "type": "string",
+                        "description": "* `invalid` - invalid\n* `max_string_length` - max_string_length\n* `max_value` - max_value\n* `min_value` - min_value"
+                    },
+                    "detail": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "attr",
+                    "code",
+                    "detail"
+                ]
+            },
+            "V1PlaylogCreateMetadataAlbumErrorComponent": {
+                "type": "object",
+                "properties": {
+                    "attr": {
+                        "enum": [
+                            "metadata.album"
+                        ],
+                        "type": "string",
+                        "description": "* `metadata.album` - metadata.album"
+                    },
+                    "code": {
+                        "enum": [
+                            "blank",
+                            "invalid",
+                            "null",
+                            "null_characters_not_allowed",
+                            "surrogate_characters_not_allowed"
+                        ],
+                        "type": "string",
+                        "description": "* `blank` - blank\n* `invalid` - invalid\n* `null` - null\n* `null_characters_not_allowed` - null_characters_not_allowed\n* `surrogate_characters_not_allowed` - surrogate_characters_not_allowed"
+                    },
+                    "detail": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "attr",
+                    "code",
+                    "detail"
+                ]
+            },
+            "V1PlaylogCreateMetadataArtistErrorComponent": {
+                "type": "object",
+                "properties": {
+                    "attr": {
+                        "enum": [
+                            "metadata.artist"
+                        ],
+                        "type": "string",
+                        "description": "* `metadata.artist` - metadata.artist"
+                    },
+                    "code": {
+                        "enum": [
+                            "blank",
+                            "invalid",
+                            "null",
+                            "null_characters_not_allowed",
+                            "surrogate_characters_not_allowed"
+                        ],
+                        "type": "string",
+                        "description": "* `blank` - blank\n* `invalid` - invalid\n* `null` - null\n* `null_characters_not_allowed` - null_characters_not_allowed\n* `surrogate_characters_not_allowed` - surrogate_characters_not_allowed"
+                    },
+                    "detail": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "attr",
+                    "code",
+                    "detail"
+                ]
+            },
+            "V1PlaylogCreateMetadataNonFieldErrorsErrorComponent": {
+                "type": "object",
+                "properties": {
+                    "attr": {
+                        "enum": [
+                            "metadata.non_field_errors"
+                        ],
+                        "type": "string",
+                        "description": "* `metadata.non_field_errors` - metadata.non_field_errors"
+                    },
+                    "code": {
+                        "enum": [
+                            "invalid",
+                            "null"
+                        ],
+                        "type": "string",
+                        "description": "* `invalid` - invalid\n* `null` - null"
+                    },
+                    "detail": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "attr",
+                    "code",
+                    "detail"
+                ]
+            },
+            "V1PlaylogCreateMetadataTitleErrorComponent": {
+                "type": "object",
+                "properties": {
+                    "attr": {
+                        "enum": [
+                            "metadata.title"
+                        ],
+                        "type": "string",
+                        "description": "* `metadata.title` - metadata.title"
+                    },
+                    "code": {
+                        "enum": [
+                            "blank",
+                            "invalid",
+                            "null",
+                            "null_characters_not_allowed",
+                            "surrogate_characters_not_allowed"
+                        ],
+                        "type": "string",
+                        "description": "* `blank` - blank\n* `invalid` - invalid\n* `null` - null\n* `null_characters_not_allowed` - null_characters_not_allowed\n* `surrogate_characters_not_allowed` - surrogate_characters_not_allowed"
+                    },
+                    "detail": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "attr",
+                    "code",
+                    "detail"
+                ]
+            },
+            "V1PlaylogCreateNonFieldErrorsErrorComponent": {
+                "type": "object",
+                "properties": {
+                    "attr": {
+                        "enum": [
+                            "non_field_errors"
+                        ],
+                        "type": "string",
+                        "description": "* `non_field_errors` - non_field_errors"
+                    },
+                    "code": {
+                        "enum": [
+                            "invalid",
+                            "null"
+                        ],
+                        "type": "string",
+                        "description": "* `invalid` - invalid\n* `null` - null"
+                    },
+                    "detail": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "attr",
+                    "code",
+                    "detail"
+                ]
+            },
+            "V1PlaylogCreateShowIdErrorComponent": {
+                "type": "object",
+                "properties": {
+                    "attr": {
+                        "enum": [
+                            "show_id"
+                        ],
+                        "type": "string",
+                        "description": "* `show_id` - show_id"
+                    },
+                    "code": {
+                        "enum": [
+                            "invalid",
+                            "max_string_length",
+                            "max_value",
+                            "min_value"
+                        ],
+                        "type": "string",
+                        "description": "* `invalid` - invalid\n* `max_string_length` - max_string_length\n* `max_value` - max_value\n* `min_value` - min_value"
+                    },
+                    "detail": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "attr",
+                    "code",
+                    "detail"
+                ]
+            },
+            "V1PlaylogCreateShowNameErrorComponent": {
+                "type": "object",
+                "properties": {
+                    "attr": {
+                        "enum": [
+                            "show_name"
+                        ],
+                        "type": "string",
+                        "description": "* `show_name` - show_name"
+                    },
+                    "code": {
+                        "enum": [
+                            "invalid",
+                            "max_length",
+                            "null",
+                            "null_characters_not_allowed",
+                            "surrogate_characters_not_allowed"
+                        ],
+                        "type": "string",
+                        "description": "* `invalid` - invalid\n* `max_length` - max_length\n* `null` - null\n* `null_characters_not_allowed` - null_characters_not_allowed\n* `surrogate_characters_not_allowed` - surrogate_characters_not_allowed"
+                    },
+                    "detail": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "attr",
+                    "code",
+                    "detail"
+                ]
+            },
+            "V1PlaylogCreateStartedAtErrorComponent": {
+                "type": "object",
+                "properties": {
+                    "attr": {
+                        "enum": [
+                            "started_at"
+                        ],
+                        "type": "string",
+                        "description": "* `started_at` - started_at"
+                    },
+                    "code": {
+                        "enum": [
+                            "date",
+                            "invalid",
+                            "make_aware",
+                            "null",
+                            "overflow",
+                            "required"
+                        ],
+                        "type": "string",
+                        "description": "* `date` - date\n* `invalid` - invalid\n* `make_aware` - make_aware\n* `null` - null\n* `overflow` - overflow\n* `required` - required"
+                    },
+                    "detail": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "attr",
+                    "code",
+                    "detail"
+                ]
+            },
+            "V1PlaylogCreateTimeslotIdErrorComponent": {
+                "type": "object",
+                "properties": {
+                    "attr": {
+                        "enum": [
+                            "timeslot_id"
+                        ],
+                        "type": "string",
+                        "description": "* `timeslot_id` - timeslot_id"
+                    },
+                    "code": {
+                        "enum": [
+                            "invalid",
+                            "max_string_length",
+                            "max_value",
+                            "min_value"
+                        ],
+                        "type": "string",
+                        "description": "* `invalid` - invalid\n* `max_string_length` - max_string_length\n* `max_value` - max_value\n* `min_value` - min_value"
+                    },
+                    "detail": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "attr",
+                    "code",
+                    "detail"
+                ]
+            },
+            "V1PlaylogCreateValidationError": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "$ref": "#/components/schemas/ValidationErrorEnum"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/V1PlaylogCreateError"
+                        }
+                    }
+                },
+                "required": [
+                    "errors",
+                    "type"
+                ]
+            },
+            "V1PlaylogListError": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/V1PlaylogListFromDateErrorComponent"
+                    },
+                    {
+                        "$ref": "#/components/schemas/V1PlaylogListToDateErrorComponent"
+                    }
+                ],
+                "discriminator": {
+                    "propertyName": "attr",
+                    "mapping": {
+                        "from_date": "#/components/schemas/V1PlaylogListFromDateErrorComponent",
+                        "to_date": "#/components/schemas/V1PlaylogListToDateErrorComponent"
+                    }
+                }
+            },
+            "V1PlaylogListErrorResponse400": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/V1PlaylogListValidationError"
+                    },
+                    {
+                        "$ref": "#/components/schemas/ParseErrorResponse"
+                    }
+                ],
+                "discriminator": {
+                    "propertyName": "type",
+                    "mapping": {
+                        "validation_error": "#/components/schemas/V1PlaylogListValidationError",
+                        "client_error": "#/components/schemas/ParseErrorResponse"
+                    }
+                }
+            },
+            "V1PlaylogListFromDateErrorComponent": {
+                "type": "object",
+                "properties": {
+                    "attr": {
+                        "enum": [
+                            "from_date"
+                        ],
+                        "type": "string",
+                        "description": "* `from_date` - from_date"
+                    },
+                    "code": {
+                        "enum": [
+                            "invalid"
+                        ],
+                        "type": "string",
+                        "description": "* `invalid` - invalid"
+                    },
+                    "detail": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "attr",
+                    "code",
+                    "detail"
+                ]
+            },
+            "V1PlaylogListToDateErrorComponent": {
+                "type": "object",
+                "properties": {
+                    "attr": {
+                        "enum": [
+                            "to_date"
+                        ],
+                        "type": "string",
+                        "description": "* `to_date` - to_date"
+                    },
+                    "code": {
+                        "enum": [
+                            "invalid"
+                        ],
+                        "type": "string",
+                        "description": "* `invalid` - invalid"
+                    },
+                    "detail": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "attr",
+                    "code",
+                    "detail"
+                ]
+            },
+            "V1PlaylogListValidationError": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "$ref": "#/components/schemas/ValidationErrorEnum"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/V1PlaylogListError"
+                        }
+                    }
+                },
+                "required": [
+                    "errors",
+                    "type"
+                ]
+            },
+            "V1TrackserviceCurrentRetrieveErrorResponse400": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/ParseErrorResponse"
+                    }
+                ],
+                "discriminator": {
+                    "propertyName": "type",
+                    "mapping": {
+                        "client_error": "#/components/schemas/ParseErrorResponse"
+                    }
+                }
+            },
+            "V1TrackserviceListError": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/V1TrackserviceListFromDateErrorComponent"
+                    },
+                    {
+                        "$ref": "#/components/schemas/V1TrackserviceListToDateErrorComponent"
+                    }
+                ],
+                "discriminator": {
+                    "propertyName": "attr",
+                    "mapping": {
+                        "from_date": "#/components/schemas/V1TrackserviceListFromDateErrorComponent",
+                        "to_date": "#/components/schemas/V1TrackserviceListToDateErrorComponent"
+                    }
+                }
+            },
+            "V1TrackserviceListErrorResponse400": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/V1TrackserviceListValidationError"
+                    },
+                    {
+                        "$ref": "#/components/schemas/ParseErrorResponse"
+                    }
+                ],
+                "discriminator": {
+                    "propertyName": "type",
+                    "mapping": {
+                        "validation_error": "#/components/schemas/V1TrackserviceListValidationError",
+                        "client_error": "#/components/schemas/ParseErrorResponse"
+                    }
+                }
+            },
+            "V1TrackserviceListFromDateErrorComponent": {
+                "type": "object",
+                "properties": {
+                    "attr": {
+                        "enum": [
+                            "from_date"
+                        ],
+                        "type": "string",
+                        "description": "* `from_date` - from_date"
+                    },
+                    "code": {
+                        "enum": [
+                            "invalid"
+                        ],
+                        "type": "string",
+                        "description": "* `invalid` - invalid"
+                    },
+                    "detail": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "attr",
+                    "code",
+                    "detail"
+                ]
+            },
+            "V1TrackserviceListToDateErrorComponent": {
+                "type": "object",
+                "properties": {
+                    "attr": {
+                        "enum": [
+                            "to_date"
+                        ],
+                        "type": "string",
+                        "description": "* `to_date` - to_date"
+                    },
+                    "code": {
+                        "enum": [
+                            "invalid"
+                        ],
+                        "type": "string",
+                        "description": "* `invalid` - invalid"
+                    },
+                    "detail": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "attr",
+                    "code",
+                    "detail"
+                ]
+            },
+            "V1TrackserviceListValidationError": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "$ref": "#/components/schemas/ValidationErrorEnum"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/V1TrackserviceListError"
+                        }
+                    }
+                },
+                "required": [
+                    "errors",
+                    "type"
+                ]
+            },
+            "ValidationErrorEnum": {
+                "enum": [
+                    "validation_error"
+                ],
+                "type": "string",
+                "description": "* `validation_error` - Validation Error"
+            }
+        },
+        "securitySchemes": {
+            "basicAuth": {
+                "type": "http",
+                "scheme": "basic"
+            },
+            "cookieAuth": {
+                "type": "apiKey",
+                "in": "cookie",
+                "name": "sessionid"
+            },
+            "tokenAuth": {
+                "type": "apiKey",
+                "in": "header",
+                "name": "Authorization",
+                "description": "Token-based authentication with required prefix \"Token\""
+            }
+        }
+    },
+    "servers": [
+        {
+            "url": "{protocol}://{api-host}:{port}/api/{version}",
+            "description": "Engine API",
+            "variables": {
+                "protocol": {
+                    "default": "http",
+                    "enum": [
+                        "http",
+                        "https"
+                    ]
+                },
+                "api-host": {
+                    "description": "Hostname or IP for API Host",
+                    "default": "localhost"
+                },
+                "port": {
+                    "default": "8000"
+                },
+                "version": {
+                    "default": "v1"
+                }
+            }
+        }
+    ],
+    "tags": [
+        {
+            "name": "public",
+            "description": "Operations available to the public."
+        },
+        {
+            "name": "internal",
+            "description": "Operations that require authentication."
+        }
+    ]
+}
