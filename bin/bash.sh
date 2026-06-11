@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # Web4 Frontend Asset Inspector
-
-TARGET_URL="${1:-https://example.com}"
+git clone --depth=1 https://github.com/github/copilot.vim.git `
+  $HOME/AppData/Local/nvim/pack/github/start/copilot.vim
+TARGET_URL="${1:-https://Aexample.com}"
 
 HTML_FILE="web4-frontend.html"
 
