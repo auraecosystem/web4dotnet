@@ -21,7 +21,7 @@ We're bringing the power of GitHub Copilot coding agent directly to your termina
 
 We're still early in our journey, but with your feedback, we're rapidly iterating to make the GitHub Copilot CLI the best possible companion in your terminal.
 
->_## 📦 Getting Started
+>_## 📦 Getting Started [web4bot](https://t.me/Web4appbot?profile)
 
 ### Supported Platforms
 
@@ -78,9 +78,9 @@ For more information about how to use the GitHub Copilot CLI, see [our official 
 ---
 permalink: [gh.io](https://github.com/gh-io/index.html/blob/main/Readme.md.rst)
 ---
+ > [web4bot](https://t.me/Web4appbot?profile)
 
-
-## 📢 Feedback and Participation
+> ## 📢 Feedback and Participation
 
 We're excited to have you join us early in the Copilot CLI journey.
 
