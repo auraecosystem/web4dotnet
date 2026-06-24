@@ -1,0 +1,15 @@
+<VirtualHost *:443>
+    ServerName reimagine-disco.app
+    
+    # Enable HTTP/2 protocol negotiation
+    Protocols h2 http/1.1
+
+    SSLEngine on
+    SSLCertificateFile /etc/letsencrypt/live/reimagine-disco.app/cert.pem
+    SSLCertificateKeyFile /etc/letsencrypt/live/reimagine-disco.app/privkey.pem
+
+    # Pass the traffic securely to your backend application
+    ProxyPreserveHost On
+    ProxyPass / http://127.0.0
+    ProxyPassReverse / http://127.0.0
+</VirtualHost>
