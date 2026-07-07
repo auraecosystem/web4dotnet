@@ -1,4 +1,4 @@
-# You.com | Documentation
+== You.com | Documentation ==
 
 > Search, Contents, and Research APIs that give your AI app real-time web intelligence. Start with free credits.
 
