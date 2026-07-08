@@ -8,9 +8,9 @@ contents: reStructuredText
 
 
 	
-#------------------------------------------------- 
+------------------------------------------------- 
  Markup Syntax and Parser Component of Docutils_
-#-------------------------------------------------
+-------------------------------------------------
 
 
 reStructuredText is an easy-to-read, what-you-see-is-what-you-get
@@ -33,7 +33,7 @@ documented using reStructuredText.
 
 
 User Documentation
-#==================
+==================
 
 - `A ReStructuredText Primer`__ (HTML file, or `text source`__).
 - `Quick reStructuredText`__ (user reference)
@@ -52,7 +52,7 @@ __ docs/user/rst/cheatsheet.rst
 
 
 Reference Documentation
-#=======================
+=======================
 
 - `An Introduction to reStructuredText`__
   (includes the Goals__ of reStructuredText)
@@ -70,7 +70,7 @@ __ docs/ref/rst/roles.html
 
 
 Developer Documentation
-#=======================
+=======================
 
 - `A Record of reStructuredText Syntax Alternatives`__
 - `Problems With StructuredText`__
