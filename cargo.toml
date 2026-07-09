@@ -1,0 +1,3 @@
+[dependencies]
+web4-core = "0.2"
+web4-trust-core = "0.2"
